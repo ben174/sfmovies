@@ -1,0 +1,6 @@
+{
+  extends: "lob/migrations",
+  parserOptions: {
+    "ecmaVersion": 2018
+  },
+}

@@ -7,3 +7,10 @@ env:
 script:
   - npm test
   - npm run lint
+before_script:
+  - yarn db:setup:user
+  - yarn db:reset
+script:
+  - yarn test
+  - yarn enforce
+  - yarn lint

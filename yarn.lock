@@ -1305,6 +1305,13 @@ hapi-bookshelf-serializer@2.1.0:
     bluebird "^2.9.34"
     boom "^2.8.0"
 
+hapi-format-error@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/hapi-format-error/-/hapi-format-error-2.1.0.tgz#b6af5fb5adc14db82bccdc681bb4cc1de8182771"
+  integrity sha512-iBMkt1g8PfI1aPHC7vWYQOSWIQ9ESW2Mb5Kg6O4RbJiiDg5WsiMMND7+BLuBepdTGQgkRednbqol4RNNsyN5OQ==
+  dependencies:
+    hoek "^4.2.1"
+
 hapi@16.6.1:
   version "16.6.1"
   resolved "https://registry.yarnpkg.com/hapi/-/hapi-16.6.1.tgz#b142f71d0a22d8151c9f5fc04a651ada092bc5c7"
@@ -1396,7 +1403,7 @@ hoek@2.x.x:
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-2.16.3.tgz#20bb7403d3cea398e91dc4710a8ff1b8274a25ed"
   integrity sha1-ILt0A9POo5jpHcRxCo/xuCdKJe0=
 
-hoek@4.x.x, hoek@^4.2.0:
+hoek@4.x.x, hoek@^4.2.0, hoek@^4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-4.2.1.tgz#9634502aa12c445dd5a7c5734b572bb8738aacbb"
   integrity sha512-QLg82fGkfnJ/4iy1xZ81/9SIJiq1NGFUMGs6ParyjBZr6jW2Ufj/snDqTHixNlHdPNwN2RLVD0Pi3igeK9+JfA==
@@ -1858,7 +1865,7 @@ joi@10.x.x:
     items "2.x.x"
     topo "2.x.x"
 
-joi@12.x.x:
+joi@12, joi@12.x.x:
   version "12.0.0"
   resolved "https://registry.yarnpkg.com/joi/-/joi-12.0.0.tgz#46f55e68f4d9628f01bbb695902c8b307ad8d33a"
   integrity sha512-z0FNlV4NGgjQN1fdtHYXf5kmgludM65fG/JlXzU6+rwkt9U5UWuXVYnXa2FpK0u6+qBuCmrm5byPNuiiddAHvQ==

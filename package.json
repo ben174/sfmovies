@@ -30,6 +30,7 @@
     "enforce": "istanbul check-coverage --statement 100 --branch 100 --function 100 --lines 100",
     "start": "nodemon --ignore test/",
     "test": "NODE_ENV=test istanbul cover _mocha -- test --require test/setup.js --recursive --timeout 30000",
+    "test:debug": "NODE_ENV=test node --inspect-brk ./node_modules/mocha/bin/_mocha test --require test/setup.js --recursive --timeout 30000",
     "test:raw": "NODE_ENV=test mocha test --require test/setup.js --recursive --timeout 30000"
   },
   "dependencies": {

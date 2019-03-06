@@ -30,4 +30,21 @@ describe('movies integration', () => {
 
   });
 
+  describe('location', () => {
+
+    it('associates a location with a movie', () => {
+      return Movies.inject({
+        url: '/movies/1/locations',
+        method: 'POST',
+        payload: { location: 1 }
+      })
+      .then((response) => {
+        expect(response.statusCode).to.eql(200);
+        expect(response.result.locations[0].id).to.eql(1);
+      });
+
+    });
+
+  });
+
 });

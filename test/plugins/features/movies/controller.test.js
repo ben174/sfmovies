@@ -2,6 +2,7 @@
 
 const Controller = require('../../../../lib/plugins/features/movies/controller');
 const Knex       = require('../../../../lib/libraries/knex');
+const Movie      = require('../../../../lib/models/movie');
 
 describe('movie controller', () => {
 
@@ -14,8 +15,18 @@ describe('movie controller', () => {
         { name: 'The Godfather: Part III', release_year: 1990 },
         { name: 'Dumb and Dumber' }
       ];
+      const locations = [
+        { name: 'New York' },
+        { name: 'Aspen' },
+        { name: 'Providence' }
+      ];
       await Knex.raw('TRUNCATE movies CASCADE');
-      return Knex('movies').insert(movies);
+      await Knex.raw('TRUNCATE locations CASCADE');
+      await Knex.raw('ALTER SEQUENCE locations_id_seq RESTART'),
+      await Knex.raw('ALTER SEQUENCE movies_id_seq RESTART'),
+
+      await Knex('locations').insert(locations);
+      await Knex('movies').insert(movies);
     });
 
     it('lists all movies', async () => {
@@ -68,6 +79,17 @@ describe('movie controller', () => {
       const movie = await Controller.create(payload);
 
       expect(movie.get('name')).to.eql(payload.title);
+    });
+
+  });
+
+  describe('locations', () => {
+
+    it('adds a location to a movie', async () => {
+      const payload = { location: 1 };
+      await Controller.addLocation(1, payload);
+      const movie = await new Movie({ id: 1 }).fetch({ withRelated: ['locations'] });
+      expect(movie.related('locations').at(0).id).to.eql(1);
     });
 
   });
